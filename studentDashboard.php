@@ -1,3 +1,63 @@
+<?php
+    session_start();// login.php
+//require_once 'login.php';
+    $db_hostname = 'localhost';
+
+    $name = $father_name =$mother_name = $dob = $email = $roll = $branch = $year = $cgpa = $UID = $PWD = "";
+    $row = 0;
+
+    //$db_database = 'u303291028_studb';
+    //$db_username = 'u303291028_root';
+    //$db_password = 'Md1bpxLRe3';
+
+    $db_database = 'studentdb';
+    $db_username = 'root';
+    $db_password = '';
+
+    $db_server = mysql_connect($db_hostname, $db_username, $db_password);
+    if (!$db_server) die("Unable to connect to MySQL: " . mysql_error());
+    mysql_select_db($db_database)
+    or die("Unable to select database: " . mysql_error());
+    if($_POST["uid"] && $_POST["pwd"]){
+
+         $UID=$_POST["uid"];
+         $PWD = $_POST["pwd"];
+         //echo $UID;
+
+         $query = "SELECT * FROM student_details_table WHERE username = '".$UID."' AND password = '".$PWD."'";
+         $result = mysql_query($query);
+         if (!$result) die ("Database access failed: " . mysql_error());
+
+         $row = mysql_num_rows($result);
+         //echo $row;
+
+         if($row == 0){
+          header("Location: home.html");
+         }
+         else {
+           # code...
+           $_SESSION['uid'] = $_POST["uid"];
+           $_SESSION['is_loggedin']=true;
+           while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+           {
+           $name = $row['name'];
+           $father_name = $row['father_name'];
+           $mother_name = $row['mother_name'];
+           $dob = $row['dob'];
+           $email = $row['email'];
+           $roll = $row['branch_roll'];
+           $branch = $row['branch'];
+           $year = $row['year'];
+           $cgpa = $row['cgpa'];
+         }
+         }
+
+       }
+       else {
+         # code...
+         header("Location: home.html");
+       }
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -23,11 +83,11 @@
     <![endif]-->
     <style>
     /*Include this section for the Navigation Section*/
-		
+
 		.navbar-brand{
 			padding:0px;
 		}
-		
+
 		.logo{
 			padding-left:10px;
 			padding-right:10px;
@@ -92,7 +152,7 @@
     <!-- NAvigation section ends -->
 
 				<!-- Search -->
-			</div>	
+			</div>
             </div>
             <!-- /.navbar-collapse -->
 			<div class="container">
@@ -104,41 +164,41 @@
 							 <tbody>
 							 	<tr>
 								 <td class="text-info">Name:</td>
-								 <td><!--here u will echo the data--></td>
+								 <td><?php echo $name; ?></td>
 							 </tr>
 							 <tr>
 								 <td class="text-info">Father's Name:</td>
-								 <td></td>
-							 </tr>				 
+								 <td><?php echo $father_name ?> </td>
+							 </tr>
 							<tr>
 								 <td class="text-info">Mother's Name:</td>
-								 <td></td>
+								 <td><?php echo $mother_name ?></td>
 							 </tr>
 							 <tr>
 								 <td class="text-info">Date of Birth:</td>
-								 <td></td>
+								 <td><?php echo $dob ?></td>
 							 </tr>
 							<tr>
 								 <td class="text-info">Email:</td>
-								 <td></td>
+								 <td><?php echo $email ?></td>
 							 </tr>
 							<tr>
 								 <td class="text-info">Roll No.:</td>
-								 <td></td>
+								 <td><?php echo $roll ?></td>
 							 </tr>
 							<tr>
 								 <td class="text-info">Branch:</td>
-								 <td></td>
+								 <td><?php echo $branch ?></td>
 							 </tr>
 							<tr>
 								 <td class="text-info">Year:</td>
-								 <td></td>
+								 <td><?php echo $year ?></td>
 							 </tr>
 							<tr>
 								 <td class="text-info">Current cgpa:</td>
-								 <td></td>
+								 <td><?php echo $cgpa ?></td>
 							 </tr>
-							
+
 							 </tbody>
 						 </table>
 					</div>
@@ -148,7 +208,7 @@
     </nav>
 
 <footer>
-		
+
         <div class="small-print">
         	<div class="container">
         		<p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
@@ -157,20 +217,20 @@
         </div>
 	</footer>
 
-	
+
     <!-- jQuery -->
     <script src="js/jquery-1.11.3.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	
+
 	<!-- IE10 viewport bug workaround -->
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
-	
+
 	<!-- Placeholder Images -->
 	<script src="js/holder.min.js"></script>
 
-	
+
 </body>
 
 </html>
