@@ -114,7 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </script>
 			 <div class="registration_form">
 			 <!-- Form -->
-				<form id="registration_form" action="contact.php" method="post">
+				<form id="registration_form" action="contact.php" method="post" enctype="multipart/form-data">
 					<div>
 						<label>
 							<input name = "name" placeholder="full name:" type="text" tabindex="1" required autofocus>
@@ -197,11 +197,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<input id="conf_password" name="conf_password" placeholder="retype password" type="password" tabindex="4" required>
 						</label>
 					</div>
+          <div>
+            <label>
+              <input type="file" name="fileToUpload" id="fileToUpload">
+            </label>
+          </div>
           <div class="sky-form">
             <label id="agree" class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to the &nbsp;<a class="terms" href="#"> terms</a> </label>
           </div>
 					<div>
-						<input type="submit" value="register me" id="register-submit">
+						<input type="submit" value="register me" id="register-submit" name="register-submit">
 					</div>
 
 				</form>
