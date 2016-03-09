@@ -21,55 +21,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-    /*Include this section for the Navigation Section*/
-
-		/*.navbar-brand,.navbar-form,.navbar-collapse
-		.navbar-nav li a {
-		    line-height: 78px;
-		    height: 78px;
-		    padding-top: 0;
-		    padding-bottom:0;
-		    margin-top:0px;
-		    font-family:sans-serif;
-		    font-size:14px;
-		}*/
-		/*.navbar{
-			max-height:79px;
-			border-bottom:solid 1px;
-			border-color:#CCC;
-		}*/
-		.navbar-brand{
-			padding:0px;
-		}/*
-		.navbar-collapse,.navbar-header{
-			padding:10px;
-		}*/
-		
-		.logo{
-			padding-left:10px;
-			padding-right:10px;
-			margin-left: 0px;
-		}/*
-		.navbar-nav li .active{
-			padding:0px;
-		}*/
-
-		/*}
-		.jumbotron{
-			margin-top:28px;
-		}*/
-	/*Navigation section ends*/
-	</style>
-	
 
 </head>
 
 <body>
 
-    <!-- Navigation Section starts-->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
             <!-- Logo and responsive toggle -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -78,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img class="logo img-responsive" alt="SRM University" src="resources/srm-logo2.jpg"></a>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-globe"></span> Logo</a>
             </div>
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
@@ -116,11 +75,10 @@
         </div>
         <!-- /.container -->
     </nav>
-    <!-- NAvigation section ends -->
 
 	<div class="jumbotron feature">
 		<div class="container">
-		
+
 			<div id="feature-carousel" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#feature-carousel" data-slide-to="0" class="active"></li>
@@ -154,7 +112,7 @@
 							<!--<h3>Proactively Pontificate</h3>
 							<p>Holistically pontificate installed base portals after maintainable products.</p>-->
 						</div>
-					</div>			  
+					</div>
 				</div>
 				<a class="left carousel-control" href="#feature-carousel" role="button" data-slide="prev">
 					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -172,12 +130,12 @@
 
 <div class="container-fluid">
 
-		
-  
+
+
 		<!-- Center Column -->
 		<div class="col-sm-8">
-		
-			
+
+
 			<!-- Articles -->
 			<div class="row">
 				<article class="col-xs-12">
@@ -190,7 +148,7 @@
 						<div class="media-body">
 							<h2 class="media-heading"><a href="#">About College</a></h2>
 							<!--<p>Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable potentialities.</p>-->
-						
+
 						<ul class="list-inline">
 							<li><a href="#"><span class="glyphicon glyphicon-comment"></span> 2 Comments</a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-share"></span> 8 Shares</a></li>
@@ -211,7 +169,7 @@
 						<div class="media-body">
 							<h2 class="media-heading"><a href="#">Proactively Envisioned</a></h2>
 							<p>Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products. Proactively envisioned multimedia based expertise and cross-media growth strategies.</p>
-						
+
 						<ul class="list-inline">
 							<li><a href="#"><span class="glyphicon glyphicon-comment"></span> 12 Comments</a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-share"></span> 18 Shares</a></li>
@@ -220,7 +178,7 @@
 					</div>
 				</article>
 			</div>
-			<hr>      
+			<hr>
 			<div class="row">
 				<article class="col-xs-12">
 					<div class="media">
@@ -232,7 +190,7 @@
 						<div class="media-body">
 							<h2 class="media-heading"><a href="#">Completely Synergize</a></h2>
 							<p>Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
-						
+
 						<ul class="list-inline">
 							<li><a href="#"><span class="glyphicon glyphicon-comment"></span> 23 Comments</a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-share"></span> 22 Shares</a></li>
@@ -247,17 +205,17 @@
 
 	  <!-- Right Column -->
 	  <div class="col-sm-4">
- 
-			<!-- Form --> 
+
+			<!-- Form -->
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						<span class="glyphicon glyphicon-log-in"></span> 
+						<span class="glyphicon glyphicon-log-in"></span>
 						Log In
 					</h3>
 				</div>
 				<div class="panel-body">
-					<form>
+					<form id="login_form" action="login.php" method="post">
 						<div class="form-group">
 						<div class="dropdown">
 						<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select User Type
@@ -277,24 +235,22 @@
 						</div>
 						<button type="submit" class="btn btn-default">Log In</button>
 						<div class="form-group">
-							<ul style="list-style-type: none; padding-left: 0px;padding-top:5px; padding-bottom: 0px;">
-								<li><a href="#">Forgot Password?</a></li>
-								<li><a href="#">Sign Up</a></li>
-							</ul>
+							<li><a href="#">Forgot Password?</li>
+							<li><a href="StudentSignUp.html">Sign Up</li>
 						</div>
 					</form>
 				</div>
 			</div>
- 
+
 
 
 
 	  </div><!--/Right Column -->
 
 	</div><!--/container-fluid-->
-	
+
 	<footer>
-		
+
         <div class="small-print">
         	<div class="container">
         		<p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
@@ -303,19 +259,19 @@
         </div>
 	</footer>
 
-	
+
     <!-- jQuery -->
     <script src="js/jquery-1.11.3.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	
+
 	<!-- IE10 viewport bug workaround -->
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
-	
+
 	<!-- Placeholder Images -->
 	<script src="js/holder.min.js"></script>
-	
+
 </body>
 
 </html>
