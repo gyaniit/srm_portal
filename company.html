@@ -1,8 +1,7 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>sign up</title>
+<title>Recruiters Form</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
@@ -50,9 +49,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <a href="#">Students</a>
                     </li>
-                    <li>
-                        <a href="#">Recruiters</a>
-                    </li>
 				</ul>
 			</div>
 			</div>
@@ -60,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 	 <div class="registration">
 		 <div class="registration_left">
-			 <h2 style="padding-top:70px;">Student Sign Up</h2>
+			 <h2 style="padding-top:70px;">Recruiters Form</h2>
 			 <!-- [if IE]
 				< link rel='stylesheet' type='text/css' href='ie.css'/>
 			 [endif] -->
@@ -108,34 +104,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </script>
 			 <div class="registration_form">
 			 <!-- Form -->
-				<form id="registration_form" action="contact.php" method="post" enctype="multipart/form-data">
+				<form id="recruiters_form" action="company.php" method="post" enctype="multipart/form-data">
 					<div>
 						<label>
-							<input name = "name" placeholder="full name:" type="text" tabindex="1" required autofocus>
+							<input name = "company_name" placeholder="Company Name :" type="text" tabindex="1" required autofocus>
 						</label>
 					</div>
 					<div>
 						<label>
-							<input id="father_name" name="father_name" placeholder="father's name:" type="text" tabindex="1" required autofocus>
+							<input id="pos_for_recruit" name="pos_for_recruit" placeholder="Recruitment for Designation :" type="text" tabindex="1" required autofocus>
 						</label>
 					</div>
 					<div>
 						<label>
-							<input id="mother_name" name="mother_name" placeholder="mother's name:" type="text" tabindex="1" required autofocus>
+							<input id="numberOfcand" name="numberOfcand" placeholder="Number of Candidates :" type="text" tabindex="1" required autofocus>
 						</label>
 					</div>
-					<div class="sky_form1">
-							<ul>
-								<li style="padding-left:15px;"><label class="radio left"><input type="radio" name="radio" checked=""><i></i>Male</label></li>
-								<li><label class="radio"><input type="radio" name="radio"><i></i>Female</label></li>
-								<div class="clearfix"></div>
-							</ul>
-						</div>
 					<div>
 						<label>
-							<input id="dob" name="dob" placeholder="date of birth in (dd/mm/yyyy)" type="text" tabindex="2" required autofocus>
+							<input id="jobDes" name="jobDes" placeholder="Job Description" type="text" tabindex="2" required autofocus>
 						</label>
 					</div>
+          <div>
+            <label>
+              <input id="package" name="package" placeholder="package" type="text" tabindex="3" required>
+            </label>
+          </div>
 					<div>
 						<label>
 							<input id="email"  name="email" placeholder="email address:" type="email" tabindex="3" required>
@@ -143,64 +137,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div>
 						<label>
-							<input id="phone_no" name="phone_no" placeholder="mobile no.:" type="text" tabindex="1" required autofocus>
+							<input id="date" name="date" placeholder="Date of Campus Visit:" type="text" tabindex="1" required autofocus>
+						</label>
+					</div>
+
+					<div>
+						<label>
+							<input id="branch" name="branch" placeholder="Eligible Branches:" type="text" tabindex="1" required autofocus>
 						</label>
 					</div>
 					<div>
 						<label>
-							<input id="roll" name="roll" placeholder="roll-no." type="text" tabindex="3" required>
+							<input id="cgpa"  name="cgpa" placeholder="Cuttoff CGPA:" type="text" tabindex="1" required autofocus>
 						</label>
 					</div>
 					<div>
 						<label>
-							<input id="branch" name="branch" placeholder="branch:" type="text" tabindex="1" required autofocus>
-						</label>
-					</div>
-						<div>
-						<label>
-							<input id="year" name="year" placeholder="year:" type="text" tabindex="1" required autofocus>
+							<input name="xcutoff" placeholder="(optional) Cutoff percentage in 10th :" type="text" tabindex="1" required autofocus>
 						</label>
 					</div>
 					<div>
 						<label>
-							<input id="cgpa"  name="cgpa" placeholder="cgpa:" type="text" tabindex="1" required autofocus>
-						</label>
-					</div>
-					<div>
-						<label>
-							<input placeholder="percentage in 10th:" type="text" tabindex="1" required autofocus>
-						</label>
-					</div>
-					<div>
-						<label>
-							<input placeholder="percentage in 12th:" type="text" tabindex="1" required autofocus>
+							<input name="xiicutoff" placeholder="(optional) Cutoff percentage in 12th:" type="text" tabindex="1" required autofocus>
 						</label>
 					</div>
           <div>
           <label>
-            <input id="username" name = "username" placeholder="username" type="text" tabindex="4" required>
+            <input id="comments" name = "comments" placeholder="Any Suggestions :" type="text" tabindex="4" required>
           </label>
         </div>
-						<div>
-						<label>
-							<input id="password"  name="password" placeholder="password" type="password" tabindex="4" required>
-						</label>
-					</div>
 					<div>
-						<label>
-							<input id="conf_password" name="conf_password" placeholder="retype password" type="password" tabindex="4" required>
-						</label>
-					</div>
-          <div>
-            <label>
-              <input type="file" name="fileToUpload" id="fileToUpload">
-            </label>
-          </div>
-          <div class="sky-form">
-            <label id="agree" class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to the &nbsp;<a class="terms" href="#"> terms</a> </label>
-          </div>
-					<div>
-						<input type="submit" value="register me" id="register-submit" name="register-submit">
+						<input type="submit" value="SUBMIT FORM" id="register-submit" name="register-submit">
 					</div>
 
 				</form>
