@@ -94,6 +94,18 @@
 			margin-left: 0px;
 		}
 	/*Navigation section ends*/
+
+        .student_pic{
+            margin-top: 62px;
+            height: 200px;
+            padding: 8px;
+            border: solid 1px #ccc;
+        }
+        .edit_btn{
+            margin-top: 20px;
+            background: #337ab7;
+            
+        }
 	</style>
 
 </head>
@@ -138,11 +150,13 @@
 
 				<!-- Search -->
 				<form class="navbar-form navbar-right" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control">
-					</div>
-					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search</button>
-				</form>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" style="background:#efefef;" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form> 
 
             </div>
             <!-- /.navbar-collapse -->
@@ -156,11 +170,18 @@
             </div>
             <!-- /.navbar-collapse -->
 			<div class="container">
-			<div class="jumbotron">
+			<div class="row">
 					<form>
-					<div class='col-md-10 col-md-offset-1'>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2 "><img class="student_pic" src="resources/girl.jpg"></div>
+					<div class='col-md-6'>
+                    <div class="row">
+                        <div class="col-md-10"><h2>Profile info</h2></div>
+                        <div class="col-md-2"><input class="btn btn-info edit_btn" type="button" href="#" value="Edit"></div>
+                    </div>
 					 	<table class="table table-striped">
-							 <thead style="padding-bottom:20px;font-size:30px;">Profile Info</thead>
+
+							 <thead style="padding-bottom:20px;font-size:30px;"></thead>
 							 <tbody>
 							 	<tr>
 								 <td class="text-info">Name:</td>
@@ -202,6 +223,7 @@
 							 </tbody>
 						 </table>
 					</div>
+                    <div class="col-md-2"></div>
 			</div>
         </div>
         <!-- /.container -->
@@ -211,6 +233,7 @@
 
         <div class="small-print">
         	<div class="container">
+            <hr style="color:#ccc;">
         		<p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
         		<p>Copyright &copy; Example.com 2015 </p>
         	</div>
