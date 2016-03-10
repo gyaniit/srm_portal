@@ -49,6 +49,11 @@
            $branch = $row['branch'];
            $year = $row['year'];
            $cgpa = $row['cgpa'];
+           $imageuri ="uploads/".$branch.$roll.'.jpeg';
+           if (getimagesize($imageuri) == false){
+             $imageuri = "uploads/girl.jpg";
+           }
+
          }
          }
 
@@ -104,7 +109,7 @@
         .edit_btn{
             margin-top: 20px;
             background: #337ab7;
-            
+
         }
 	</style>
 
@@ -156,7 +161,7 @@
                             <button class="btn btn-default" style="background:#efefef;" type="button"><span class="glyphicon glyphicon-search"></span></button>
                         </span>
                     </div>
-                </form> 
+                </form>
 
             </div>
             <!-- /.navbar-collapse -->
@@ -173,11 +178,11 @@
 			<div class="row">
 					<form>
                     <div class="col-md-2"></div>
-                    <div class="col-md-2 "><img class="student_pic" src="resources/girl.jpg"></div>
+                    <div class="col-md-2 "><img class="student_pic" src=<?php echo $imageuri; ?>></div>
 					<div class='col-md-6'>
                     <div class="row">
                         <div class="col-md-10"><h2>Profile info</h2></div>
-                        <div class="col-md-2"><input class="btn btn-info edit_btn" type="button" href="#" value="Edit"></div>
+                        <div class="col-md-2"><a href="editstudentprofile.html"><input class="btn btn-info edit_btn" type="button" value="Edit"></a></div>
                     </div>
 					 	<table class="table table-striped">
 
