@@ -12,6 +12,6 @@
   or die("Unable to select database: " . mysql_error());
 
   
-echo "connected to db";
+//echo "connected to db";
 
 ?>

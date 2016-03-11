@@ -126,6 +126,8 @@
         <!-- /.container -->
     </nav>
     <!-- NAvigation section ends -->
+
+
     <!-- START: Code for Adding rows to table -->
     <script>
     // test below
@@ -219,51 +221,55 @@
                     </div>
                 </form>
             </div>
-            <br>
-            <hr>
+            <br><br><br>
+            
 
             <div class="col-md-12">
-                <table class="table table-list-search">
-                    <thead>
-                        <tr>
-                            <th>Sl. No</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Branch</th>
-                            <th>Roll</th>
-                            <th>CGPA</th>
-                            <th>Year</th>
-                            <th>Gender</th>
-                            <th>Selections</th>
-                            <th>Remarks</th>
-                            <th>Edit</th>
-                            <th>Remove</th>
-                            <th>Select</th>
-                        </tr>
-                    </thead>
-                    <tbody id="rowStu">
-                        <tr>
-                            <th>1</th>
-                            <th><img class="img_stu" src="resources/girl.jpg"></th>
-                            <td>XYZ</td>
-                            <td>CSE</td>
-                            <td>1234</td>
-                            <td>8.5</td>
-                            <td>2</td>
-                            <td>Male</td>
-                            <td class="selection">Ambrosia, Jaika, Dominos</td>
-                            <td><input id="textinput" name="remark" type="text" placeholder="Tell Something" class="form-control input-md"></td>
-                            <td><a id="addRow"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
-                            <td><button id="removeStu" class="btn btn-default edit"  type="button"><span class="glyphicon glyphicon-remove"></span></button></td>
-                            <td>
-                                <div class="ckbox">
-                                    <input type="checkbox" id="checkbox1">
-                                </div>
-                            </td>
-                        </tr>
-                     
-                    </tbody>
-                </table>   
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table table-list-search">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Branch</th>
+                                    <th>Roll</th>
+                                    <th>CGPA</th>
+                                    <th>Year</th>
+                                    <th>Gender</th>
+                                    <th>Selections</th>
+                                    <th>Remarks</th>
+                                    <th>Edit</th>
+                                    <th>Remove</th>
+                                    <th>Select</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rowStu">
+                                <tr>
+                                    <th>1</th>
+                                    <th><img class="img_stu" src="resources/girl.jpg"></th>
+                                    <td>XYZ</td>
+                                    <td>CSE</td>
+                                    <td>1234</td>
+                                    <td>8.5</td>
+                                    <td>2</td>
+                                    <td>Male</td>
+                                    <td class="selection">Ambrosia, Jaika, Dominos</td>
+                                    <td><input id="textinput" name="remark" type="text" placeholder="Tell Something" class="form-control input-md"></td>
+                                    <td><a id="addRow"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+                                    <td><button id="removeStu" class="btn btn-default edit"  type="button"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                    <td>
+                                        <div class="ckbox">
+                                            <input type="checkbox" id="checkbox1">
+                                        </div>
+                                    </td>
+                                </tr>
+                             
+                            </tbody>
+                        </table>
+                    </div>
+                </div>   
             </div>
 
 

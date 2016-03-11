@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html>
+<head> 
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Assign job</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+    /*Include this section for the Navigation Section*/
+
+		.navbar-brand{
+			padding:0px;
+		}
+
+		.logo{
+			padding-left:10px;
+			padding-right:10px;
+			margin-left: 0px;
+		}
+	/*Navigation section ends*/
+
+        .student_pic{
+            margin-top: 62px;
+            height: 200px;
+            padding: 8px;
+            border: solid 1px #ccc;
+        }
+        .edit{
+            background: #fff;
+            border-color: #fff !important;
+            color: red;
+            padding:0px;
+
+        }
+        .edit:hover,.edit:active,.edit:focus{
+            background: #fff;
+            border-color: #fff !important;
+            padding:0px;
+        }
+        
+        .img_stu{
+            height:100px;
+        }
+        .selection{
+            width:200px;
+        }
+        
+	</style>
+    <script language="JavaScript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Navigation Section starts-->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img class="logo img-responsive" alt="SRM University" src="resources/srm-logo2.jpg"></a>
+            </div>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Students</a>
+                    </li>
+                    <li>
+                        <a href="#">Recruiters</a>
+                    </li>
+                    <li>
+                        <a href="#">Assign Jobs</a>
+                    </li>
+                    <li>
+                        <a href="#">Company Notification</a>
+                    </li>
+					<!--<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
+						<ul class="dropdown-menu" aria-labelledby="about-us">
+							<li><a href="#">Engage</a></li>
+							<li><a href="#">Pontificate</a></li>
+							<li><a href="#">Synergize</a></li>
+						</ul>
+					</li>
+						-->
+                </ul>
+
+				<!-- Search -->
+				<form class="navbar-form navbar-right" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" style="background:#efefef;" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- NAvigation section ends -->
+
+    <div style="margin-top:20px;"></div>
+			
+			<div class="container">
+				<div class="jumbotron">
+			       <form class="form-horizontal">
+					<fieldset>
+
+					<!-- Form Name -->
+					<legend>Assign Job to Branches</legend>
+
+					<!-- Multiple Checkboxes (inline) -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="checkboxes">Eligible Branches</label>
+					  <div class="col-md-4">
+					    <label class="checkbox-inline" for="checkboxes-0">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+					      ALL
+					    </label><br>
+					    <label class="checkbox-inline" for="checkboxes-1">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+					      EEE
+					    </label>
+					    <label class="checkbox-inline" for="checkboxes-2">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-2" value="3">
+					      ECE
+					    </label>
+					    <label class="checkbox-inline" for="checkboxes-3">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-3" value="4">
+					      MIN
+					    </label>
+					    <label class="checkbox-inline" for="checkboxes-0">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+					      CSE
+					    </label>
+					    <label class="checkbox-inline" for="checkboxes-1">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+					      EEE
+					    </label><br>
+					    <label class="checkbox-inline" for="checkboxes-2">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-2" value="3">
+					      ECE
+					    </label>
+					    <label class="checkbox-inline" for="checkboxes-3">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-3" value="4">
+					      MIN
+					    </label>
+					    <label class="checkbox-inline" for="checkboxes-1">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+					      EEE
+					    </label>
+					    <label class="checkbox-inline" for="checkboxes-2">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-2" value="3">
+					      ECE
+					    </label>
+					    <label class="checkbox-inline" for="checkboxes-3">
+					      <input type="checkbox" name="checkboxes" id="checkboxes-3" value="4">
+					      MIN
+					    </label>
+					  </div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Company</label>  
+					  <div class="col-md-4">
+					  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+					   
+					  </div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Job ID</label>  
+					  <div class="col-md-4">
+					  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+					  
+					  </div>
+					</div>
+
+					<!-- Textarea -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textarea">Description</label>
+					  <div class="col-md-4">                     
+					    <textarea class="form-control" id="textarea" name="textarea">default text</textarea>
+					  </div>
+					</div>
+
+					<!-- Select Basic -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="selectbasic">Year</label>
+					  <div class="col-md-4">
+					    <select id="selectbasic" name="selectbasic" class="form-control">
+					      <option value="1">1</option>
+					      <option value="2">2</option>
+					      <option value="3">3</option>
+					      <option value="4">4</option>
+					    </select>
+					  </div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Last Date</label>  
+					  <div class="col-md-4">
+					  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+					    
+					  </div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="textinput"></label>  
+					  	<div class="col-md-8">
+					  		<input type='submit' name='submit' class='btn btn-info' value='Submit'> 
+						</div>
+					</div>
+					</div>
+					
+					</fieldset>
+					</form>
+					
+			</div>
+			</div>
+
+			<!-- Branch form ends -->
+
+
+			<!-- Student form starts -->
+			
+<div class="container">
+	<div class="jumbotron">
+       <form class="form-horizontal">
+		<fieldset>
+		<legend>Assign Job to Student</legend>
+		<div class="row">
+					
+
+
+		<div class="col-md-6">
+			
+					<!-- Form Name -->
+					
+
+					<!-- Multiple Checkboxes (inline) -->
+					
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Student username</label>  
+					  <div class="col-md-8">
+					  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+					   
+					  </div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Student Name</label>  
+					  <div class="col-md-8">
+					  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+					  
+					  </div>
+					</div>
+
+					<div class="form-group" >
+                            <!-- <label class="col-md-2 control-label" for="selectbasic">Branch</label> -->
+                              <label class="col-md-4 control-label" for="textinput">Branch</label>  
+					  			<div class="col-md-8">
+                              <div class="input-group-btn">
+                                <select id="branch" name="branch"  class="form-control" >
+                                 
+                                  <option value=" " disabled="disabled" selected>Select branch</option>
+                                  <option value="CSE">CSE</option>
+                                  <option value="EEE">EEE</option>
+                                  <option value="ECE">ECE</option>
+                                  <option value="MIN">MIN</option>
+                                  <option value="MNC">MNC</option>
+                                  <option value="CER">CER</option>
+                                  <option value="CIV">CIV</option>
+                                  <option value="MET">MET</option>
+                                  <option value="MEC">MEC</option>
+                                  <option value="IT">IT</option>
+                                  
+                                </select>
+
+                            </div>
+						</div>
+                                
+                    </div>
+
+					<!-- Select Basic -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="selectbasic">Year</label>
+					  <div class="col-md-8">
+					    <select id="selectbasic" name="selectbasic" class="form-control">
+					      <option value="1">1</option>
+					      <option value="2">2</option>
+					      <option value="3">3</option>
+					      <option value="4">4</option>
+					    </select>
+					  </div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Last Date</label>  
+					  <div class="col-md-8">
+					  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+					    
+					  </div>
+					</div>
+					
+					</div>
+
+
+					
+					
+			
+
+			<div class="col-md-6">
+				
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Company</label>  
+					  <div class="col-md-8">
+					  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+					   
+					  </div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Job ID</label>  
+					  <div class="col-md-8">
+					  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+					  
+					  </div>
+					</div>
+
+					<!-- Textarea -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textarea">Description</label>
+					  <div class="col-md-8">                     
+					    <textarea class="form-control" id="textarea" name="textarea">default text</textarea>
+					  </div>
+					</div>
+
+					
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="textinput">Last Date</label>  
+					  <div class="col-md-8">
+					  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+					    
+					  </div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="textinput"></label>  
+					  	<div class="col-md-8">
+					  		<input type='submit' name='submit' class='btn btn-info' value='Submit'> 
+						</div>
+					</div>
+
+				</div>
+					
+			</fieldset>
+			</form>
+				
+	</body>
+	</html>
+	
