@@ -93,6 +93,12 @@
                     <li>
                         <a href="#">Recruiters</a>
                     </li>
+                    <li>
+                        <a href="#">Assign Jobs</a>
+                    </li>
+                    <li>
+                        <a href="#">Company Notification</a>
+                    </li>
 					<!--<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
 						<ul class="dropdown-menu" aria-labelledby="about-us">
@@ -120,56 +126,35 @@
         <!-- /.container -->
     </nav>
     <!-- NAvigation section ends -->
+    <!-- START: Code for Adding rows to table -->
+    <script>
+    // test below
+
+        function showStudents(str,str2) {
+          var xhttp;  
+            if(str==" ")
+                str="ALL";
+            if(str2==" ")
+                str2="0";
+
+          
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+              document.getElementById("rowStu").innerHTML = xhttp.responseText;
+            }
+          };
+          xhttp.open("GET", "getstudent.php?q="+str+str2, true);
+          xhttp.send();
+        }
+
+
+    
+    </script>
+    <!-- END: Code for Adding rows to table -->
 
 			<!--bullshit below-->
-            <script>
-                $(document).ready(function() {
-                    var activeSystemClass = $('.list-group-item.active');
-
-                    //something is entered in search form
-                    $('#system-search').keyup( function() {
-                       var that = this;
-                        // affect all table rows on in systems table
-                        var tableBody = $('.table-list-search tbody');
-                        var tableRowsClass = $('.table-list-search tbody tr');
-                        $('.search-sf').remove();
-                        tableRowsClass.each( function(i, val) {
-                        
-                            //Lower text for case insensitive
-                            var rowText = $(val).text().toLowerCase();
-                            var inputText = $(that).val().toLowerCase();
-                            if(inputText != '')
-                            {
-                                $('.search-query-sf').remove();
-                                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
-                                    + $(that).val()
-                                    + '"</strong></td></tr>');
-                            }
-                            else
-                            {
-                                $('.search-query-sf').remove();
-                            }
-
-                            if( rowText.indexOf( inputText ) == -1 )
-                            {
-                                //hide rows
-                                tableRowsClass.eq(i).hide();
-                                
-                            }
-                            else
-                            {
-                                $('.search-sf').remove();
-                                tableRowsClass.eq(i).show();
-                            }
-                        });
-                        //all tr elements are hidden
-                        if(tableRowsClass.children(':visible').length == 0)
-                        {
-                            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
-                        }
-                    });
-                });
-            </script>
+            
 
             <div class="col-md-12" style=" margin-top:10px; margin-bottom:20px;">
                 <form action="#" method="get" style="margin-bottom:20px;">
@@ -178,9 +163,11 @@
                             <!-- <label class="col-md-2 control-label" for="selectbasic">Branch</label> -->
                               <div class="col-md-3"></div>
                               <div class="col-md-2">
-                              <div class="input-group">
-                                <select id="selectbasic" name="branch"  class="form-control" >
-                                  <option value="0" disabled="disabled" selected>Select Branch</option>    
+                              <div class="input-group-btn">
+                                <select id="branch" name="branch"  class="form-control" onchange="showStudents(this.value,year.value)">
+                                 
+                                  <option value=" " disabled="disabled" selected>Select branches</option>
+                                  <option value="ALL">All Students</option>
                                   <option value="CSE">CSE</option>
                                   <option value="EEE">EEE</option>
                                   <option value="ECE">ECE</option>
@@ -194,61 +181,35 @@
                                   
                                 </select>
 
-                                <span class="input-group-btn">
-                                    <button id="addRow" class="btn btn-default" style="background:#efefef;" type="button"><span class="glyphicon glyphicon-arrow-right"></span></button>
-                                </span>
                             </div>
 
-                                <!-- <select id="selectbasic" name="branch"  class="form-control" required autofocus>
-                                  <option value="0" disabled="disabled" selected>Select your branch</option>    
-                                  <option value="CSE">CSE</option>
-                                  <option value="EEE">EEE</option>
-                                  <option value="ECE">ECE</option>
-                                  <option value="MIN">MIN</option>
-                                  <option value="MNC">MNC</option>
-                                  <option value="CER">CER</option>
-                                  <option value="CIV">CIV</option>
-                                  <option value="MET">MET</option>
-                                  <option value="MEC">MEC</option>
-                                  <option value="IT">IT</option>
-                                  
-                                </select>
-                              </div> -->
+                                
                             </div>
 
                             <!-- Select Basic -->
                             <div class="form-group">
                               <!-- <label class="col-md-2 control-label" for="selectbasic">Year</label> -->
                               <div class="col-md-2">
-                              <div class="input-group">
-                                <select id="selectbasic" name="year" class="form-control">
-                                  <option value="0" disabled="disabled" selected>Select Year</option>
+                              <div class="input-group-btn">
+                                <select id="year" name="year" class="form-control" onchange="showStudents(branch.value,this.value)">
+                                  <option value=" " disabled="disabled" selected>Select Year</option>
+                                  <option value="0">ALL</option>
                                   <option value="1">I</option>
                                   <option value="2">II</option>
                                   <option value="3">III</option>
                                   <option value="4">IV</option>
                                   
                                 </select>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" style="background:#efefef;" type="button"><span class="glyphicon glyphicon-arrow-right"></span></button>
-                                </span>
+                                
                             </div>
-                                <!-- <select id="selectbasic" name="year" class="form-control" required autofocus>
-                                  <option value="0" disabled="disabled" selected>Select your year</option>
-                                  <option value="1">I</option>
-                                  <option value="2">II</option>
-                                  <option value="3">III</option>
-                                  <option value="4">IV</option>
-                                  
-                                </select> 
-                              </div>-->
+                                
                             </div>
                         
                         <div class="col-md-2">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
+                                <input id="stu_name" name="st_name"type="text" class="form-control" placeholder="Search for...">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" style="background:#efefef;" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                    <button class="btn btn-default" style="background:#efefef;" type="button" onclick="showStudents('CHK',stu_name.value)"><span class="glyphicon glyphicon-search"></span></button>
                                 </span>
                             </div>
                         </div>
@@ -269,6 +230,7 @@
                             <th>Branch</th>
                             <th>Roll</th>
                             <th>CGPA</th>
+                            <th>Year</th>
                             <th>Gender</th>
                             <th>Selections</th>
                             <th>Remarks</th>
@@ -285,6 +247,7 @@
                             <td>CSE</td>
                             <td>1234</td>
                             <td>8.5</td>
+                            <td>2</td>
                             <td>Male</td>
                             <td class="selection">Ambrosia, Jaika, Dominos</td>
                             <td><input id="textinput" name="remark" type="text" placeholder="Tell Something" class="form-control input-md"></td>
@@ -304,7 +267,7 @@
 
 			<!--bullshit above-->
 
-<footer>
+    <footer>
 
         <div class="small-print">
         	<div class="container">
@@ -315,27 +278,7 @@
         </div>
 	</footer>
 
-    <!-- START: Code for Adding rows to table -->
-    <script>
-        var scntDiv = $('#rowStu');
-        var i = $('#rowStu tr').size() + 1;
-
-        $('#addRow').click(function() {
-            scntDiv.append('<tr><th>9</th><th><img class="img_stu" src="resources/girl.jpg"></th><td>XYZ</td><td>CSE</td><td>1234</td> <td>8.5</td> <td>Male</td><td class="selection">Ambrosia, Jaika, Dominos</td><td><input id="textinput" name="remark" type="text" placeholder="Tell Something" class="form-control input-md"></td> <td><a id="addRow"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td> <td><button id="removeStu" class="btn btn-default edit"  type="button"><span class="glyphicon glyphicon-remove"></span></button></td> <td><div class="ckbox"> <input type="checkbox" id="checkbox1"> </div> </td> </tr>');
-            i++;
-            return false;
-        });
-
-        //Remove button
-        $(document).on('click', '#removeStu', function() {
-            if (i > 2) {
-                $(this).closest('tr').remove();
-                i--;
-            }
-            return false;
-        });
-    </script>
-    <!-- END: Code for Adding rows to table -->
+    
 
 
     <!-- jQuery -->
