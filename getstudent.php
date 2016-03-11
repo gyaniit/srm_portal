@@ -23,7 +23,7 @@ include 'connectDB.php';
 
 
 if($q1=="CHK")
-  $query = "SELECT * FROM student_details_table WHERE name='$q2'";
+  $query = "SELECT * FROM student_details_table WHERE name LIKE '%$q2%'";
 elseif($q1=="ALL" && $q2=="0")
   $query = "SELECT * FROM student_details_table";
 elseif($q1=="ALL" && $q2!="0")
