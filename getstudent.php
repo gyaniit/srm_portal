@@ -6,23 +6,22 @@ $q = strval($_GET['q']);
 $q1 = substr($q,0,3);
 $q2 = substr($q,3);
 
+include 'connectDB.php';
+  // $db_hostname = 'localhost';
+  // //$db_database = 'u303291028_studb';
+  // //$db_username = 'u303291028_root';
+  // //$db_password = 'Md1bpxLRe3';
+  // $db_database = 'studentdb';
+  // $db_username = 'root';
+  // $db_password = '';
 
-  $db_hostname = 'localhost';
-  //$db_database = 'u303291028_studb';
-  //$db_username = 'u303291028_root';
-  //$db_password = 'Md1bpxLRe3';
-  $db_database = 'studentdb';
-  $db_username = 'root';
-  $db_password = '';
-
-  $db_server = mysql_connect($db_hostname, $db_username, $db_password);
+  // $db_server = mysql_connect($db_hostname, $db_username, $db_password);
   
-  if (!$db_server) die("Unable to connect to MySQL: " . mysql_error());
-  mysql_select_db($db_database)
-  or die("Unable to select database: " . mysql_error());
+  // if (!$db_server) die("Unable to connect to MySQL: " . mysql_error());
+  // mysql_select_db($db_database)
+  // or die("Unable to select database: " . mysql_error());
 
-  //print_r($_POST);
-  //print_r($_FILES);
+
 if($q1=="CHK")
   $query = "SELECT * FROM student_details_table WHERE name='$q2'";
 elseif($q1=="ALL" && $q2=="0")
@@ -30,7 +29,7 @@ elseif($q1=="ALL" && $q2=="0")
 elseif($q1=="ALL" && $q2!="0")
   $query = "SELECT * FROM student_details_table WHERE year='$q2'";
 elseif($q1!="ALL" && $q2=="0")
-  $query = "SELECT * FROM student_details_table WHERE branch='$q2'";
+  $query = "SELECT * FROM student_details_table WHERE branch='$q1'";
 else
   $query = "SELECT * FROM student_details_table WHERE branch='$q1' AND year='$q2'";
 

@@ -136,6 +136,8 @@
                 str="ALL";
             if(str2==" ")
                 str2="0";
+            if(str=="IT")
+                str="IT ";
 
           
           xhttp = new XMLHttpRequest();
