@@ -95,10 +95,10 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li >
                         <a href="http://srmtpoportal.esy.es/srm/index.html">Home</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="#">Students</a>
                     </li>
                     <li>
@@ -107,21 +107,13 @@
                     <li>
                         <a href="http://srmtpoportal.esy.es/srm/admin_company_notif.php">Company Notification</a>
                     </li>
-					<!--<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="about-us">
-							<li><a href="#">Engage</a></li>
-							<li><a href="#">Pontificate</a></li>
-							<li><a href="#">Synergize</a></li>
-						</ul>
-					</li>
-						-->
                 </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li >
-                            <a href="logout.php">Sign out</a>
-                        </li>
-                    </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="logout.php">Sign out</a>
+                    </li>
+                </ul>
+
 
 				<!-- Search -->
 				<form class="navbar-form navbar-right" role="search">
@@ -170,7 +162,7 @@
     </script>
     <!-- END: Code for Adding rows to table -->
 
-			<!--.....................................Student Table below................................-->
+			<!--bullshit below-->
 
 
             <div class="col-md-12" style=" margin-top:10px; margin-bottom:20px;">
@@ -286,7 +278,7 @@
             </div>
 
 
-			<!--....................................Student table above..........................................-->
+			<!--bullshit above-->
 
     <footer>
 

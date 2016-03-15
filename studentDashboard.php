@@ -3,6 +3,7 @@
     error_reporting(0);
 //require_once 'login.php';
 //include 'globalvar.php';
+$_SESSION['loggedIn']=true;
 $name = $father_name =$mother_name = $dob = $email = $roll = $branch = $year = $cgpa = $UID = $PWD = "";
 $row = 0;
 
@@ -24,7 +25,7 @@ $row = 0;
     mysql_select_db($db_database)
     or die("Unable to select database: " . mysql_error());
 
-    if($_SESSION['username'] && $_SESSION['isSignedUp']){
+    if($_SESSION['username'] && ($_SESSION['isSignedUp'] || $_SESSION['loggedIn'])){
       $UID = $_SESSION['username'];
 
       $query = "SELECT * FROM student_details_table WHERE username = '".$UID."'";
@@ -47,6 +48,7 @@ $row = 0;
              $dob = $row['dob'];
              $email = $row['email'];
              $roll = $row['branch_roll'];
+             $gender = $row['gender'];
              $branch = $row['branch'];
              $year = $row['year'];
              $cgpa = $row['cgpa'];
@@ -96,6 +98,7 @@ $row = 0;
                 $dob = $row['dob'];
                 $email = $row['email'];
                 $roll = $row['branch_roll'];
+                $gender = $row['gender'];
                 $branch = $row['branch'];
                 $year = $row['year'];
                 $cgpa = $row['cgpa'];
@@ -187,30 +190,23 @@ $row = 0;
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li >
                         <a href="index.html">Home</a>
                     </li>
-                    <li>
-                        <a href="#">Students</a>
+                    <li class="active">
+                        <a >Profile</a>
                     </li>
                     <li>
                         <a href="studentjobs.php">Job & Companies</a>
                     </li>
-					<!--<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="about-us">
-							<li><a href="#">Engage</a></li>
-							<li><a href="#">Pontificate</a></li>
-							<li><a href="#">Synergize</a></li>
-						</ul>
-					</li>
-						-->
+
                 </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="logout.php">Sign out</a>
-                        </li>
-                    </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="logout.php">Sign out</a>
+                    </li>
+                </ul>
+
 
 				<!-- Search -->
 				<form class="navbar-form navbar-right" role="search">
@@ -264,6 +260,10 @@ $row = 0;
 							 <tr>
 								 <td class="text-info">Date of Birth:</td>
 								 <td><?php echo $dob ?></td>
+							 </tr>
+                                                        <tr>
+								 <td class="text-info">Gender:</td>
+								 <td><?php echo $gender ?></td>
 							 </tr>
 							<tr>
 								 <td class="text-info">Email:</td>

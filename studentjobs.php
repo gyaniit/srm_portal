@@ -16,17 +16,18 @@
   mysql_select_db($db_database)
   or die("Unable to select database: " . mysql_error());
 
-  if($username){
+    if($username){
     $query = "SELECT * FROM student_job_table WHERE cand_username = '".$username."'";
     $result = mysql_query($query);
-    if (!$result) die ("Database access failed: " . mysql_error());
-    $result2 = $result;
+    if (!$result) {
+        header("Location:studentDashboard.php");
+     }
 
     $row = mysql_num_rows($result);
 
 
     if($row == 0){
-        header("Location: studentDashboard.php");
+        header("Location:studentDashboard.php");
     }
     else{
 
@@ -98,25 +99,24 @@
                  <!-- Navbar links -->
                  <div class="collapse navbar-collapse" id="navbar">
                      <ul class="nav navbar-nav">
-                         <li class="active">
+                         <li >
                              <a href="index.html">Home</a>
                          </li>
                          <li>
-                             <a href="#login_form">Students</a>
+                             <a href="studentDashboard.php">Dashboard</a>
                          </li>
                          <li>
                              <a href="company2.html">Recruiters</a>
                          </li>
-     					<!--<li class="dropdown">
-     						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
-     						<ul class="dropdown-menu" aria-labelledby="about-us">
-     							<li><a href="#">Engage</a></li>
-     							<li><a href="#">Pontificate</a></li>
-     							<li><a href="#">Synergize</a></li>
-     						</ul>
-     					</li>
-     						-->
-                     </ul>
+                 </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="logout.php">Sign out</a>
+                    </li>
+                </ul>
+
+                     
                      <form class="navbar-form navbar-right" role="search">
      		            <div class="input-group">
      						<input type="text" class="form-control" placeholder="Search for...">
@@ -219,7 +219,7 @@
           <?php } ?>
         		</tbody>
         </table>
-        <input type="submit" name='apply' class='btn btn-info' value="submit">
+        <input type="submit" name='apply' class='btn btn-success' value="Save">
       </form>
 
 
@@ -227,13 +227,6 @@
 
      </div>
     </div>
-    <script>
-    function doConcart(str1,str2){
-      var res = str1.concat(str2,str3);
-      return res;
-    }
-    </script>
-
-  </body>
+   </body>
 
   </html>

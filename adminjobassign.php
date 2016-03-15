@@ -47,6 +47,7 @@ error_reporting(0);
                $rd = rand(1,1000);
                $compId = substr($compname,0,3);
                $compId.=$rd;
+               $compId.=$uname;
                $jobDescrip = $compdesg.','.$compjobdes;
                $query = "INSERT INTO `student_job_table`(`job_id`, `job_assigned`, `job_description`, `job_date`, `job_status`, `cand_username`,
                   `cand_name`, `cand_branch`, `cand_year`) VALUES ('".$compId."','".$compname."','".$jobDescrip."',

@@ -59,7 +59,7 @@ while($row = mysql_fetch_array($qry_result)){
    $display_string .= "<td>$row[branch_roll]</td>";
    $display_string .= "<td>$row[cgpa]</td>";
    $display_string .= "<td>$row[year]</td>";
-   $display_string .= "<td>Female</td>";//add gender attribute to table
+   $display_string .= "<td>$row[gender]</td>";//add gender attribute to table
    $display_string .= "<td class='selection'>Ambrosia, Jaika, Dominos</td>";
    $display_string .= "<td><input id='textinput' name='remark' type='text' placeholder='Tell Something' class='form-control input-md'></td>";
    $display_string .= "<td><a id='addRow'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a></td>";

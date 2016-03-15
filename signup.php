@@ -36,7 +36,8 @@
      $_POST['year']&&
      $_POST['cgpa']&&
      $_POST['password']&&
-     $_POST['conf_password'])
+     $_POST['conf_password']&&
+     $_POST['gender'])
     {
               $name = $_POST['name'];
               $father_name = $_POST['father_name'];
@@ -47,17 +48,18 @@
               $branch = $_POST['branch'];
               $year = $_POST['year'];
               $cgpa = $_POST['cgpa'];
-              $username = $_POST['branch'].$_POST['year'].$_POST['roll'];
+              $username = $_POST['branch'].$_POST['roll'];
               $password = $_POST['password'];
               $conf_password = $_POST['conf_password'];
+              $gender = $_POST['gender'];
 
               if($password == $conf_password){
                 $branchid = 0;
                 $jobs = "not yet";
                 $company = "no";
                 $query = "INSERT INTO student_details_table (branch_id, branch_roll, name, username, password,
-                         father_name, mother_name, dob, email, branch, year, cgpa, job, company_applied)
-                         VALUES ('".$branchid."','".$roll."','".$name."','".$username."','".$password."','".$father_name."','".$mother_name."','".$dob."','".$email."','".$branch."','".$year."','".$cgpa."','".$jobs."','".$company."')";
+                         father_name, mother_name, dob, email, branch, year, cgpa, job, company_applied, gender)
+                         VALUES ('".$branchid."','".$roll."','".$name."','".$username."','".$password."','".$father_name."','".$mother_name."','".$dob."','".$email."','".$branch."','".$year."','".$cgpa."','".$jobs."','".$company."','".$gender."')";
                 if (!mysql_query($query, $db_server))
                 echo "INSERT failed: $query<br>" . mysql_error() . "<br><br>";
               }
@@ -99,8 +101,8 @@
                     # clean memory
                     imagedestroy($dstImg);
              //added ABOVE for image resize
-                  
-                  
+
+
                 }
 
                else {
@@ -117,4 +119,3 @@
 
 
 ?>
-	

@@ -98,7 +98,7 @@
                  <!-- Navbar links -->
                  <div class="collapse navbar-collapse" id="navbar">
                      <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li >
                         <a href="http://srmtpoportal.esy.es/srm/index.html">Home</a>
                     </li>
                     <li>
@@ -107,19 +107,18 @@
                     <li>
                         <a href="http://srmtpoportal.esy.es/srm/admin_job_assign.html">Assign Jobs</a>
                     </li>
-                    <li>
-                        <a href="#">Company Notification</a>
+                    <li class="active">
+                        <a >Company Notification</a>
                     </li>
-     					<!--<li class="dropdown">
-     						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
-     						<ul class="dropdown-menu" aria-labelledby="about-us">
-     							<li><a href="#">Engage</a></li>
-     							<li><a href="#">Pontificate</a></li>
-     							<li><a href="#">Synergize</a></li>
-     						</ul>
-     					</li>
-     						-->
-                     </ul>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="logout.php">Sign out</a>
+                    </li>
+                </ul>
+
+                     
                      <form class="navbar-form navbar-right" role="search">
      		            <div class="input-group">
      						<input type="text" class="form-control" placeholder="Search for...">
@@ -235,7 +234,7 @@
           <?php } ?>
         		</tbody>
         </table>
-        <input type="submit" name='apply' class='btn btn-info' value="submit">
+        <input type="submit" name='apply' class='btn btn-success' value="Save">
       </form>
 
 
