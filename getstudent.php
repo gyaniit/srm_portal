@@ -1,6 +1,6 @@
 <?php // login.php
 //require_once 'login.php';
-
+error_reporting(0);
 $q = strval($_GET['q']);
 
 $q1 = substr($q,0,3);
@@ -16,7 +16,7 @@ include 'connectDB.php';
   // $db_password = '';
 
   // $db_server = mysql_connect($db_hostname, $db_username, $db_password);
-  
+
   // if (!$db_server) die("Unable to connect to MySQL: " . mysql_error());
   // mysql_select_db($db_database)
   // or die("Unable to select database: " . mysql_error());
@@ -41,11 +41,19 @@ $count=1;
 $display_string=" ";
 //echo $q;
 
- 
+
 while($row = mysql_fetch_array($qry_result)){
+   $img = "$row[branch]$row[branch_roll].jpeg";
+   $res="uploads/$img";
+  // $size = getimagesize($_FILES[$res]);
+   if(!file_exists($res))
+       $res="uploads/default.jpg";
+   
+      
+
    $display_string .= "<tr>";
    $display_string .= "<td>$count</td>";
-   $display_string .= "<td><img class='img_stu' src='resources/girl.jpg'></td>";
+   $display_string .= "<td><img class='img_stu' src='$res'></td>";
    $display_string .= "<td>$row[name]</td>";
    $display_string .= "<td>$row[branch]</td>";
    $display_string .= "<td>$row[branch_roll]</td>";
@@ -59,7 +67,7 @@ while($row = mysql_fetch_array($qry_result)){
    $display_string .= "<td><div class='ckbox'><input type='checkbox' id='checkbox1'></div></td>";
    $display_string .= "</tr>";
    $count=$count+1;
-   
+
 }
 
 

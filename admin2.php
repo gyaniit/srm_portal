@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  error_reporting(0);
+  if($_SESSION['admin']=='grid'){}
+    else {
+      # code...
+      header("Location:index.html");
+    }
+ ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -7,7 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>student dashboard</title>
+        <link rel="shortcut icon" href="resources/srm-logo1.jpg" />
+       <title>TPO-SRMU</title>
+
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -53,14 +64,14 @@
             border-color: #fff !important;
             padding:0px;
         }
-        
+
         .img_stu{
             height:100px;
         }
         .selection{
             width:200px;
         }
-        
+
 	</style>
     <script language="JavaScript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 
@@ -85,19 +96,16 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="#">Home</a>
+                        <a href="http://srmtpoportal.esy.es/srm/index.html">Home</a>
                     </li>
                     <li>
                         <a href="#">Students</a>
                     </li>
                     <li>
-                        <a href="#">Recruiters</a>
+                        <a href="http://srmtpoportal.esy.es/srm/admin_job_assign.html">Assign Jobs</a>
                     </li>
                     <li>
-                        <a href="#">Assign Jobs</a>
-                    </li>
-                    <li>
-                        <a href="#">Company Notification</a>
+                        <a href="http://srmtpoportal.esy.es/srm/admin_company_notif.php">Company Notification</a>
                     </li>
 					<!--<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
@@ -109,6 +117,11 @@
 					</li>
 						-->
                 </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a href="logout.php">Sign out</a>
+                        </li>
+                    </ul>
 
 				<!-- Search -->
 				<form class="navbar-form navbar-right" role="search">
@@ -133,7 +146,7 @@
     // test below
 
         function showStudents(str,str2) {
-          var xhttp;  
+          var xhttp;
             if(str==" ")
                 str="ALL";
             if(str2==" ")
@@ -141,7 +154,7 @@
             if(str=="IT")
                 str="IT ";
 
-          
+
           xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -153,12 +166,12 @@
         }
 
 
-    
+
     </script>
     <!-- END: Code for Adding rows to table -->
 
-			<!--bullshit below-->
-            
+			<!--.....................................Student Table below................................-->
+
 
             <div class="col-md-12" style=" margin-top:10px; margin-bottom:20px;">
                 <form action="#" method="get" style="margin-bottom:20px;">
@@ -169,7 +182,7 @@
                               <div class="col-md-2">
                               <div class="input-group-btn">
                                 <select id="branch" name="branch"  class="form-control" onchange="showStudents(this.value,year.value)">
-                                 
+
                                   <option value=" " disabled="disabled" selected>Select branches</option>
                                   <option value="ALL">All Students</option>
                                   <option value="CSE">CSE</option>
@@ -182,12 +195,12 @@
                                   <option value="MET">MET</option>
                                   <option value="MEC">MEC</option>
                                   <option value="IT">IT</option>
-                                  
+
                                 </select>
 
                             </div>
 
-                                
+
                             </div>
 
                             <!-- Select Basic -->
@@ -202,16 +215,16 @@
                                   <option value="2">II</option>
                                   <option value="3">III</option>
                                   <option value="4">IV</option>
-                                  
+
                                 </select>
-                                
+
                             </div>
-                                
+
                             </div>
-                        
+
                         <div class="col-md-2">
                             <div class="input-group">
-                                <input id="stu_name" name="st_name"type="text" class="form-control" placeholder="Search for...">
+                                <input id="stu_name" name="st_name"type="text" class="form-control" placeholder="Search for student">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" style="background:#efefef;" type="button" onclick="showStudents('CHK',stu_name.value)"><span class="glyphicon glyphicon-search"></span></button>
                                 </span>
@@ -222,7 +235,7 @@
                 </form>
             </div>
             <br><br><br>
-            
+
 
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -265,15 +278,15 @@
                                         </div>
                                     </td>
                                 </tr>
-                             
+
                             </tbody>
                         </table>
                     </div>
-                </div>   
+                </div>
             </div>
 
 
-			<!--bullshit above-->
+			<!--....................................Student table above..........................................-->
 
     <footer>
 
@@ -286,7 +299,7 @@
         </div>
 	</footer>
 
-    
+
 
 
     <!-- jQuery -->

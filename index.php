@@ -76,7 +76,11 @@
 					</li>-->
 
                 </ul>
-
+<?php   
+    if($_SESSION['username']) {
+        echo '<ul class="nav navbar-nav navbar-right"><li class="active"><a href="logout.php">Sign out</a></li></ul>';
+    } 
+?>
                 <form class="navbar-form navbar-right" role="search">
 		            <div class="input-group">
 						<input type="text" class="form-control" placeholder="Search for...">

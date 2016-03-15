@@ -1,27 +1,77 @@
 <?php
     session_start();// login.php
+    error_reporting(0);
 //require_once 'login.php';
+//include 'globalvar.php';
+$name = $father_name =$mother_name = $dob = $email = $roll = $branch = $year = $cgpa = $UID = $PWD = "";
+$row = 0;
+
+    // $db_hostname = 'localhost';
+    // //$db_database = 'u303291028_studb';
+    // //$db_username = 'u303291028_root';
+    // //$db_password = 'Md1bpxLRe3';
+    //
+    // $db_database = 'studentdb';
+    // $db_username = 'root';
+    // $db_password = '';
     $db_hostname = 'localhost';
-
-    $name = $father_name =$mother_name = $dob = $email = $roll = $branch = $year = $cgpa = $UID = $PWD = "";
-    $row = 0;
-
-    //$db_database = 'u303291028_studb';
-    //$db_username = 'u303291028_root';
-    //$db_password = 'Md1bpxLRe3';
-
-    $db_database = 'studentdb';
-    $db_username = 'root';
-    $db_password = '';
+    $db_database = 'u171585512_studb';
+    $db_username = 'u171585512_root';
+    $db_password = 'RYF5M9cGGi';
 
     $db_server = mysql_connect($db_hostname, $db_username, $db_password);
     if (!$db_server) die("Unable to connect to MySQL: " . mysql_error());
     mysql_select_db($db_database)
     or die("Unable to select database: " . mysql_error());
-    if($_POST["uid"] && $_POST["pwd"]){
+
+    if($_SESSION['username'] && $_SESSION['isSignedUp']){
+      $UID = $_SESSION['username'];
+
+      $query = "SELECT * FROM student_details_table WHERE username = '".$UID."'";
+      $result = mysql_query($query);
+      if (!$result) die ("Database access failed: " . mysql_error());
+
+      $row = mysql_num_rows($result);
+
+
+      if($row == 0){
+          header("Location: index.html");
+      }
+      else {
+
+         while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+         {
+             $name = $row['name'];
+             $father_name = $row['father_name'];
+             $mother_name = $row['mother_name'];
+             $dob = $row['dob'];
+             $email = $row['email'];
+             $roll = $row['branch_roll'];
+             $branch = $row['branch'];
+             $year = $row['year'];
+             $cgpa = $row['cgpa'];
+             $imageuri ="uploads/".$branch.$roll.'.jpeg';
+             if (getimagesize($imageuri) == false){
+                 $imageuri = "uploads/girl.jpg";
+              }
+         }
+       }
+    }
+
+    else if($_POST["uid"] && $_POST["pwd"]){
+      //echo $_POST['userType'];
+        if($_POST['userType'] == '2'){
+          if($_POST['uid'] == 'grid' && $_POST['pwd'] == 'coding')
+          {
+            $_SESSION['admin'] = 'grid';
+            header("Location:admin2.php");
+          }
+        }
+        else{
 
          $UID=$_POST["uid"];
          $PWD = $_POST["pwd"];
+         $_SESSION['username'] = $UID;
          //echo $UID;
 
          $query = "SELECT * FROM student_details_table WHERE username = '".$UID."' AND password = '".$PWD."'";
@@ -29,40 +79,42 @@
          if (!$result) die ("Database access failed: " . mysql_error());
 
          $row = mysql_num_rows($result);
-         //echo $row;
+                  //echo $row;
 
          if($row == 0){
-          header("Location: home.html");
+             header("Location: index.html");
          }
          else {
-           # code...
-           $_SESSION['uid'] = $_POST["uid"];
-           $_SESSION['is_loggedin']=true;
-           while($row = mysql_fetch_array($result, MYSQL_ASSOC))
-           {
-           $name = $row['name'];
-           $father_name = $row['father_name'];
-           $mother_name = $row['mother_name'];
-           $dob = $row['dob'];
-           $email = $row['email'];
-           $roll = $row['branch_roll'];
-           $branch = $row['branch'];
-           $year = $row['year'];
-           $cgpa = $row['cgpa'];
-           $imageuri ="uploads/".$branch.$roll.'.jpeg';
-           if (getimagesize($imageuri) == false){
-             $imageuri = "uploads/girl.jpg";
-           }
-
-         }
-         }
-
+            # code...
+            $_SESSION['uid'] = $_POST["uid"];
+            $_SESSION['is_loggedin']=true;
+            while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+            {
+                $name = $row['name'];
+                $father_name = $row['father_name'];
+                $mother_name = $row['mother_name'];
+                $dob = $row['dob'];
+                $email = $row['email'];
+                $roll = $row['branch_roll'];
+                $branch = $row['branch'];
+                $year = $row['year'];
+                $cgpa = $row['cgpa'];
+                $imageuri ="uploads/".$branch.$roll.'.jpeg';
+                if (getimagesize($imageuri) == false){
+                    $imageuri = "uploads/girl.jpg";
+                 }
+            }
+          }
        }
-       else {
-         # code...
-         header("Location: home.html");
-       }
+     }
+    else {
+       # code...
+      header("Location: index.html");
+     }
 ?>
+
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -72,7 +124,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>student dashboard</title>
+        <link rel="shortcut icon" href="resources/srm-logo1.jpg" />
+    <title>TPO-SRMU</title>
+
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -134,13 +188,13 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="#">Home</a>
+                        <a href="index.html">Home</a>
                     </li>
                     <li>
                         <a href="#">Students</a>
                     </li>
                     <li>
-                        <a href="#">Recruiters</a>
+                        <a href="studentjobs.php">Job & Companies</a>
                     </li>
 					<!--<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
@@ -152,6 +206,11 @@
 					</li>
 						-->
                 </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="logout.php">Sign out</a>
+                        </li>
+                    </ul>
 
 				<!-- Search -->
 				<form class="navbar-form navbar-right" role="search">
@@ -183,8 +242,10 @@
                     <div class="row">
                         <div class="col-md-10"><h2>Profile info</h2></div>
                         <div class="col-md-2"><a href="editstudentprofile.html"><input class="btn btn-info edit_btn" type="button" value="Edit"></a></div>
+
                     </div>
 					 	<table class="table table-striped">
+
 
 							 <thead style="padding-bottom:20px;font-size:30px;"></thead>
 							 <tbody>
@@ -224,6 +285,10 @@
 								 <td class="text-info">Current cgpa:</td>
 								 <td><?php echo $cgpa ?></td>
 							 </tr>
+               <tr>
+                  <td class="text-info">Username:</td>
+                  <td><?php echo $UID ?></td>
+                </tr>
 
 							 </tbody>
 						 </table>
